@@ -32,4 +32,4 @@ def test(data):
     return True
 
 def handle(data):
-    return talkbot.respond(data)
+    return talkbot.respond(data).encode('utf-8')
