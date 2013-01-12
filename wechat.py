@@ -42,7 +42,7 @@ def parse_user_msg(xml):
     return msg
 
 
-def reply_with_text(to, text):
+def reply_with_text(fromuser, touser, text):
     tpl = u"""<xml>
     <ToUserName><![CDATA[%s]]></ToUserName>
     <FromUserName><![CDATA[%s]]></FromUserName>
@@ -54,10 +54,10 @@ def reply_with_text(to, text):
     """
 
     timestamp = int(time.time())
-    return tpl % (to, options.username, timestamp, MSG_TYPE_TEXT, text)
+    return tpl % (touser, fromuser, timestamp, MSG_TYPE_TEXT, text)
 
 
-def reply_with_articles(to, articles, text=''):
+def reply_with_articles(fromuser, touser, articles, text=''):
     tpl = u"""<xml>
     <ToUserName><![CDATA[%s]]></ToUserName>
     <FromUserName><![CDATA[%s]]></FromUserName>
@@ -76,14 +76,17 @@ def reply_with_articles(to, articles, text=''):
     <Url><![CDATA[%s]]></Url>
     </item>
     """
-    count = len(articles)
+    
     timestamp = int(time.time())
     items = []
+    if not isinstance(articles, list):
+        articles = [articles]
+    count = len(articles)
     for article in articles:
         item = itemtpl % (article['title'], article['description'],
                           article['picurl'], article['url'])
         items.append(item)
     article_str = '\n'.join(items)
 
-    return tpl % (to, options.username, timestamp,
+    return tpl % (touser, fromuser, timestamp,
                   text, count, article_str)
