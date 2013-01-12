@@ -53,7 +53,7 @@ class Application(web.Application):
 
 def main():
     if options.debug:
-        define('settings', '%s/weixin.conf' % PROJDIR)
+        define('settings', '%s/wechat.conf' % PROJDIR)
     else:
         define('settings', '')
     parse_command_line()

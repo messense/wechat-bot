@@ -1,6 +1,6 @@
 #coding=utf-8
 import logging
-import weixin
+import wechat
 import ai
 
 from hashlib import sha1
@@ -8,7 +8,7 @@ from tornado import web
 from tornado.options import options
 
 
-class WeixinHandler(web.RequestHandler):
+class WechatHandler(web.RequestHandler):
 
     def get(self):
         echostr = self.get_argument('echostr', '')
@@ -35,19 +35,19 @@ class WeixinHandler(web.RequestHandler):
     def post(self):
         self.set_header("Content-Type", "application/xml;charset=utf-8")
         body = self.request.body
-        msg = weixin.parse_user_msg(body)
+        msg = wechat.parse_user_msg(body)
         if not msg:
             return
-        if msg.type == weixin.MSG_TYPE_TEXT:
+        if msg.type == wechat.MSG_TYPE_TEXT:
             text = ai.magic(msg.content)
-            reply = weixin.reply_with_text(msg.fromuser, text)
+            reply = wechat.reply_with_text(msg.fromuser, text)
             self.write(reply)
-        elif msg.type == weixin.MSG_TYPE_LOCATION:
+        elif msg.type == wechat.MSG_TYPE_LOCATION:
             pass
         else:
             pass
         
 
 handlers = [
-    ('/', WeixinHandler),
+    ('/', WechatHandler),
 ]

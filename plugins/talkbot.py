@@ -26,10 +26,12 @@ class TalkBot(aiml.Kernel):
             if f.endswith('.aiml'):
                 self.learn(os.path.join(options.aiml_set, f))
 
-bot = TalkBot()
+talkbot = None
 
 def test(data, bot):
     return True
 
 def handle(data, bot):
+    if talkbot is None:
+        talkbot = TalkBot()
     return bot.respond(data)
