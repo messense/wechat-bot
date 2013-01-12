@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category> 
+    <pattern>你 是 猪</pattern> 
+    <template> 你.才.是.猪! o(︶︿︶)o </template> 
+  </category> 
+  
+  <category> 
+    <pattern>你 是 SB</pattern> 
+    <template> 你.才.是.SB! o(︶︿︶)o </template> 
+  </category>
+</aiml>

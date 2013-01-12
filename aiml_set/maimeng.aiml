@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category><pattern>调 戏 *</pattern><template><srai>调戏</srai> </template> </category>
+  <category><pattern>* 调 戏 *</pattern><template><srai>调戏</srai> </template> </category>
+  <category><pattern>喵 *</pattern><template><srai>调戏</srai> </template></category>
+  <category><pattern>喵</pattern><template><srai>调戏</srai> </template></category>
+  <category><pattern>笑 一 个</pattern><template><srai>调戏</srai> </template></category>
+  
+  <category>
+    <pattern>调 戏</pattern>
+    <template>
+      <random>
+        <li>卖.萌.禁.止!</li>
+        <li>调.戏.禁.止!</li>
+        <li>我是正经机器人，请勿调戏!</li>
+        <li>唔 . . .</li>
+        <li>求调教!</li>
+      </random>
+    </template>
+  </category>
+  
+  <category><pattern>调 教 *</pattern><template><srai>调教</srai> </template></category>
+  <category><pattern>* 调 教 *</pattern><template><srai>调教</srai> </template></category>
+  
+  <category>
+    <pattern>调 教</pattern>
+    <template>
+      <random>
+        <li>求调教！</li>
+        <li>喵～</li>
+        <li>喵唔～</li>
+        <li>\(‵▽′)/ 好开心啊～(追着尾巴转圈圈  </li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>夸 奖 *</pattern>
+    <template>
+     嗨嗨，他们都说我<get name="star"/>~ ʅ(‾◡◝)ʃ  (骄
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>西 电 好 不 好</pattern>
+    <template>
+      <random>
+        <li>
+          西电强攻啊！伦家好爽的！
+        </li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>微 软 好 不 好</pattern>
+    <template>
+      <random>
+        <li>
+            微软神马的，最讨厌了!
+        </li>
+      </random>
+    </template>
+  </category>
+
+  <category><pattern>* 好 不 好 _</pattern> <template> <srai><star/>好不好</srai></template> </category>
+  <category><pattern>* 行 不 行 _</pattern> <template> <srai><star/>好不好</srai></template> </category>
+  <category><pattern>* 怎 么 样 _</pattern> <template> <srai><star/>好不好</srai></template> </category>
+  <category><pattern>* 怎 么 样</pattern> <template> <srai><star/>好不好</srai></template> </category>
+  
+  <category>
+    <pattern>* 好 不 好</pattern>
+    <template>
+      <think><set name="star"><star index="1"/></set></think>
+      <condition name="star">
+        <li value="亲一下"><srai>亲一下行不行</srai></li>
+        <li value="西军电"><srai>西电好不好</srai></li>
+        <li value="西电科大"><srai>西电好不好</srai></li>
+        <li><get name="star"/>是神马？可以吃么？</li>
+      </condition>
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>* 行 不 行</pattern>
+    <template>
+      <think><set name="star"><star index="1"/></set></think>
+      <condition name="star">
+        <li value="亲一个"><srai>亲亲</srai></li>
+        <li value="亲一下"><srai>亲亲</srai></li>
+        <li>
+          <random>
+            <li>不要！</li>
+            <li>雅蠛蝶！</li>
+          </random>
+        </li>
+        </condition>
+    </template>
+  </category>
+
+</aiml>

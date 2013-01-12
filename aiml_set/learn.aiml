@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml version="1.0">
+
+  <category>
+    <pattern>BAD ANSWER</pattern> 
+    <template>
+      <think>
+        <set name="badanswer-input"><input index="2" /></set>
+        <set name="topic">badanswer prelim</set>
+      </think>
+      唔，你要调教我如何回答 "<get name="badanswer-input"/>" 么? \(‵▽′)/
+    </template>
+  </category>
+
+  <topic name="BADANSWER PRELIM">
+    <category>
+      <pattern>_</pattern> 
+      <template>
+        <think><set name="star"><star /></set></think>
+        <condition name="star">
+          <li value="yes">
+            好啊好啊，求调教! <think><set name="topic">learn new answer</set></think>
+          </li>
+          <li value="no">
+            唔... 
+          </li>
+          <li>Nani?</li>
+        </condition>
+      </template>
+    </category>
+
+
+    <category>
+      <pattern>_ _</pattern> 
+      <template><sr /></template>
+    </category>
+  </topic>
+</aiml>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>亲 一 个</pattern>
+    <template><srai>亲亲</srai></template>
+  </category>
+  
+  <category>
+    <pattern>啵 一 个</pattern>
+    <template><srai>亲亲</srai></template>
+  </category>
+
+  <category>
+    <pattern>亲 一 下</pattern>
+    <template><srai>亲亲</srai></template>
+  </category>
+
+  <category>
+    <pattern>亲 亲</pattern>
+    <template>
+      <random>
+        <li>乃不怕触电啊喂!</li>
+        <li>我没有嘴啊亲!</li>
+        <li>唔... 么么...(脸红</li>
+        <li>不要～</li>
+      </random>
+    </template>
+  </category>
+</aiml>
