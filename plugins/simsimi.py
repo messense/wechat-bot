@@ -86,6 +86,8 @@ def respond(data):
     if "Unauthorized access" in response:
         # try again
         response = simsimi.chat(data)
+    response = response.replace('xiaohuangji', options.username)
+    response = response.replace('小黄鸡', '我')
     if "Unauthorized access" in response:
         # still can't , give up
         response = '矮油，这个问题我暂时回答不了喵~'
