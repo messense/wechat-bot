@@ -2,11 +2,16 @@
 <aiml>
   <category> 
     <pattern>你 是 猪</pattern> 
-    <template> 你.才.是.猪! o(︶︿︶)o </template> 
+    <template> 你才是猪! o(︶︿︶)o </template> 
   </category> 
   
   <category> 
     <pattern>你 是 SB</pattern> 
-    <template> 你.才.是.SB! o(︶︿︶)o </template> 
+    <template> 你才是SB! o(︶︿︶)o </template> 
+  </category>
+
+  <category>
+    <pattern>你 * 傻 逼</pattern>
+    <template> 傻逼说谁？ </template>
   </category>
 </aiml>

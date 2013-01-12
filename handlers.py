@@ -59,15 +59,19 @@ class WechatHandler(web.RequestHandler):
         self.fromuser = msg.fromuser
 
         if msg.type == wechat.MSG_TYPE_TEXT:
-            logging.info('message type text from %s', msg.fromuser)
+            if options.debug:
+                logging.info('message type text from %s', msg.fromuser)
             text = ai.magic(msg.content)
             reply = wechat.reply_with_text(msg.touser, msg.fromuser, text)
             self.write(reply)
-            logging.info('Replied to %s with "%s"', msg.fromuser, text)
+            if options.debug:
+                logging.info('Replied to %s with "%s"', msg.fromuser, text)
         elif msg.type == wechat.MSG_TYPE_LOCATION:
-            logging.info('message type location from %s', msg.fromuser)
+            if options.debug:
+                logging.info('message type location from %s', msg.fromuser)
         elif msg.type == wechat.MSG_TYPE_IMAGE:
-            logging.info('message type image from %s', msg.fromuser)
+            if options.debug:
+                logging.info('message type image from %s', msg.fromuser)
         else:
             logging.info('message type unknown')
 
