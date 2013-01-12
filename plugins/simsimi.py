@@ -82,4 +82,11 @@ def test(data):
 
 
 def respond(data):
-    return simsimi.chat(data)
+    response = simsimi.chat(data)
+    if "Unauthorized access" in response:
+        # try again
+        response = simsimi.chat(data)
+    if "Unauthorized access" in response:
+        # still can't , give up
+        response = '矮油，这个问题我暂时回答不了喵~'
+    return response

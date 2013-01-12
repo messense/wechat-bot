@@ -19,7 +19,7 @@ def respond(data):
         article = ObjectDict()
         article.title = topics[i]['title']
         article.url = topics[i]['url']
-        article.picurl = ''
+        article.picurl = 'http://openoceans.de/img/v2ex_logo_uranium.png'
         article.description = topics[i]['content_rendered'][0:100]
         articles.append(article)
         i += 1
