@@ -41,18 +41,6 @@
     </template>
   </category>
 
-
-  <category>
-    <pattern>西 电 好 不 好</pattern>
-    <template>
-      <random>
-        <li>
-          西电强攻啊！伦家好爽的！
-        </li>
-      </random>
-    </template>
-  </category>
-
   <category>
     <pattern>微 软 好 不 好</pattern>
     <template>
@@ -75,8 +63,6 @@
       <think><set name="star"><star index="1"/></set></think>
       <condition name="star">
         <li value="亲一下"><srai>亲一下行不行</srai></li>
-        <li value="西军电"><srai>西电好不好</srai></li>
-        <li value="西电科大"><srai>西电好不好</srai></li>
         <li><get name="star"/>是神马？可以吃么？</li>
       </condition>
     </template>
