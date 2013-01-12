@@ -23,7 +23,8 @@ class WechatHandler(web.RequestHandler):
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
 
-        tmparr = [options.token, timestamp, nonce].sort()
+        tmparr = [options.token, timestamp, nonce]
+        tmparr.sort()
         tmpstr = ''.join(tmparr)
         tmpstr = sha1(tmpstr).hexdigest()
 
