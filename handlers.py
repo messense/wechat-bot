@@ -34,19 +34,29 @@ class WechatHandler(web.RequestHandler):
             return False
 
     def post(self):
+        if not self.check_signature():
+            logging.warning("Signature check failed.")
+            return
+
         self.set_header("Content-Type", "application/xml;charset=utf-8")
         body = self.request.body
+        logging.info(body)
         msg = wechat.parse_user_msg(body)
         if not msg:
+            logging.info('Empty message, ignored')
             return
         if msg.type == wechat.MSG_TYPE_TEXT:
+            logging.info('message type text from %s', msg.fromuser)
             text = ai.magic(msg.content)
             reply = wechat.reply_with_text(msg.fromuser, text)
             self.write(reply)
+            logging.info('Replied to %s with "%s"', msg.fromuser, text)
         elif msg.type == wechat.MSG_TYPE_LOCATION:
-            pass
+            logging.info('message type location from %s', msg.fromuser)
+        elif msg.type == wechat.MSG_TYPE_IMAGE:
+            logging.info('message type image from %s', msg.fromuser)
         else:
-            pass
+            logging.info('message type unknown')
         
 
 handlers = [
