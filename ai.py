@@ -13,18 +13,18 @@ for name in plugins.__all__:
         logging.warning('load plugin %s failed.' % name)
 
 
-def magic(data, bot=None):
+def magic(data):
     response = ''
     for plugin in plugin_modules:
         try:
-            if plugin.test(data, bot):
-                response = plugin.handle(data, bot)
+            if plugin.test(data):
+                response = plugin.handle(data)
         except:
             continue
         if response:
             break
 
-    return response or 'I don\'t understand.'
+    return response or u'呵呵'
 
 if __name__ == '__main__':
     print(magic('hello'))

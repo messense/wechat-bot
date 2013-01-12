@@ -40,7 +40,6 @@ class WechatHandler(web.RequestHandler):
 
         self.set_header("Content-Type", "application/xml;charset=utf-8")
         body = self.request.body
-        logging.info(body)
         msg = wechat.parse_user_msg(body)
         if not msg:
             logging.info('Empty message, ignored')

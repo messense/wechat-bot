@@ -74,17 +74,12 @@ class SimSimi:
         else:
             return '叫我干嘛'
 
-simsimi = None
+simsimi = SimSimi()
 
 
-def test(data, bot):
+def test(data):
     return True
 
 
-def handle(data, bot):
-    if not simsimi:
-        simsimi = SimSimi()
+def handle(data):
     return simsimi.chat(data)
-
-if __name__ == '__main__':
-    print handle({'message': '最后一个问题'}, None)
