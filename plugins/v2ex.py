@@ -15,11 +15,14 @@ def respond(data):
     topics = json_decode(res.text)
     articles = []
     i = 0
-    while i < 5:
+    while i < 10:
         article = ObjectDict()
         article.title = topics[i]['title']
         article.url = topics[i]['url']
-        article.picurl = 'http://openoceans.de/img/v2ex_logo_uranium.png'
+        if i == 0:
+            article.picurl = 'http://openoceans.de/img/v2ex_logo_uranium.png'
+        else:
+            article.picurl = ''
         article.description = topics[i]['content_rendered'][0:100]
         articles.append(article)
         i += 1
