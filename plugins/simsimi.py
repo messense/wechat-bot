@@ -81,5 +81,5 @@ def test(data):
     return True
 
 
-def handle(data):
+def respond(data):
     return simsimi.chat(data)

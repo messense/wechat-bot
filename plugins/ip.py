@@ -9,7 +9,7 @@ def test(data):
         return True
     return False
 
-def handle(data):
+def respond(data):
     m = ip_pattern.match(data)
     ip = m.group(1)
     res = requests.get("http://wap.ip138.com/ip_search.asp?ip=%s" % ip)
@@ -21,4 +21,4 @@ def handle(data):
     return '查询 IP 地址 %s 失败' % ip
 
 if __name__ == '__main__':
-    print(handle("192.168.1.1"))
+    print(respond("192.168.1.1"))

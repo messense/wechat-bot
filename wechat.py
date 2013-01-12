@@ -76,7 +76,7 @@ def reply_with_articles(fromuser, touser, articles, text=''):
     <Url><![CDATA[%s]]></Url>
     </item>
     """
-    
+
     timestamp = int(time.time())
     items = []
     if not isinstance(articles, list):
@@ -90,3 +90,10 @@ def reply_with_articles(fromuser, touser, articles, text=''):
 
     return tpl % (touser, fromuser, timestamp,
                   text, count, article_str)
+
+
+def generate_reply(fromuser, touser, response, text=''):
+    if isinstance(response, list):
+        return reply_with_articles(fromuser, touser, response, text)
+    else:
+        return reply_with_text(fromuser, touser, response)

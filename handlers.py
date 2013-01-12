@@ -61,11 +61,13 @@ class WechatHandler(web.RequestHandler):
         if msg.type == wechat.MSG_TYPE_TEXT:
             if options.debug:
                 logging.info('message type text from %s', msg.fromuser)
-            text = ai.magic(msg.content)
-            reply = wechat.reply_with_text(msg.touser, msg.fromuser, text)
+
+            response = ai.respond(msg.content)
+            reply = wechat.generate_reply(msg.touser, msg.fromuser, response)
             self.write(reply)
+
             if options.debug:
-                logging.info('Replied to %s with "%s"', msg.fromuser, text)
+                logging.info('Replied to %s with "%s"', msg.fromuser, response)
         elif msg.type == wechat.MSG_TYPE_LOCATION:
             if options.debug:
                 logging.info('message type location from %s', msg.fromuser)

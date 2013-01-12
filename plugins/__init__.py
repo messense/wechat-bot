@@ -1,3 +1,3 @@
 #coding=utf-8
 
-__all__ = ['ip', 'talkbot', 'simsimi']
+__all__ = ['ip', 'v2ex', 'talkbot', 'simsimi']
