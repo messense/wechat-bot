@@ -43,7 +43,7 @@ def parse_user_msg(xml):
 
 
 def reply_with_text(fromuser, touser, text):
-    tpl = u"""<xml>
+    tpl = """<xml>
     <ToUserName><![CDATA[%s]]></ToUserName>
     <FromUserName><![CDATA[%s]]></FromUserName>
     <CreateTime>%s</CreateTime>
@@ -58,7 +58,7 @@ def reply_with_text(fromuser, touser, text):
 
 
 def reply_with_articles(fromuser, touser, articles, text=''):
-    tpl = u"""<xml>
+    tpl = """<xml>
     <ToUserName><![CDATA[%s]]></ToUserName>
     <FromUserName><![CDATA[%s]]></FromUserName>
     <CreateTime>%s</CreateTime>
@@ -69,7 +69,7 @@ def reply_with_articles(fromuser, touser, articles, text=''):
     <FuncFlag>0</FuncFlag>
     </xml>
     """
-    itemtpl = u"""<item>
+    itemtpl = """<item>
     <Title><![CDATA[%s]]></Title>
     <Description><![CDATA[%s]]></Description>
     <PicUrl><![CDATA[%s]]></PicUrl>

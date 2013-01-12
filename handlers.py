@@ -9,6 +9,13 @@ from tornado.options import options
 
 
 class WechatHandler(web.RequestHandler):
+    def get_error_html(self, status_code, **kwargs):
+        self.set_header("Content-Type", "application/xml;charset=utf-8")
+        if 'touser' in self and 'fromuser' in self:
+            reply = wechat.reply_with_text(self.touser, self.fromuser,
+                                           '矮油，系统出错了，没法回答你了。')
+            self.write(reply)
+            return
 
     def get(self):
         echostr = self.get_argument('echostr', '')
@@ -44,6 +51,10 @@ class WechatHandler(web.RequestHandler):
         if not msg:
             logging.info('Empty message, ignored')
             return
+
+        self.touser = msg.touser
+        self.fromuser = msg.fromuser
+
         if msg.type == wechat.MSG_TYPE_TEXT:
             logging.info('message type text from %s', msg.fromuser)
             text = ai.magic(msg.content)
@@ -56,7 +67,7 @@ class WechatHandler(web.RequestHandler):
             logging.info('message type image from %s', msg.fromuser)
         else:
             logging.info('message type unknown')
-        
+
 
 handlers = [
     ('/', WechatHandler),
