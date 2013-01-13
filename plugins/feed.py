@@ -4,7 +4,9 @@ from tornado.util import ObjectDict
 from tornado.options import options
 
 def test(data, msg=None):
-    if options.feed_url and 'rss feed' in data or '博客更新' in data:
+    if not options.feed_url:
+        return False
+    if 'rss feed' in data or '博客更新' in data:
         return True
     return False
 
