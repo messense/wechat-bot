@@ -13,12 +13,12 @@ for name in plugins.__all__:
         logging.warning('load plugin %s failed.' % name)
 
 
-def respond(data):
+def respond(data, msg=None):
     response = None
     for plugin in plugin_modules:
         try:
-            if plugin.test(data):
-                response = plugin.respond(data)
+            if plugin.test(data, msg):
+                response = plugin.respond(data, msg)
         except:
             continue
         if response:

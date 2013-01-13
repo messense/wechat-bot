@@ -4,12 +4,12 @@ from xml.etree import ElementTree
 from tornado.util import ObjectDict
 
 
-def test(data):
+def test(data, msg=None):
     if ('oschina' in data or '开源中国' in data) and '最新' in data and '新闻' in data:
         return True
     return False
 
-def respond(data):
+def respond(data, msg=None):
     headers = {
         'Host' : 'www.oschina.net',
         'Connection' : 'Keep-Alive',

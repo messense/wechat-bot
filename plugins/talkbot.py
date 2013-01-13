@@ -28,8 +28,8 @@ class TalkBot(aiml.Kernel):
 
 talkbot = TalkBot()
 
-def test(data):
+def test(data, msg=None):
     return True
 
-def respond(data):
+def respond(data, msg=None):
     return talkbot.respond(data).encode('utf-8')

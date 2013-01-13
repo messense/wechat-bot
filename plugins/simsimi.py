@@ -77,11 +77,11 @@ class SimSimi:
 simsimi = SimSimi()
 
 
-def test(data):
+def test(data, msg=None):
     return True
 
 
-def respond(data):
+def respond(data, msg=None):
     response = simsimi.chat(data)
     if "Unauthorized access" in response:
         # try again

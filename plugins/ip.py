@@ -4,12 +4,12 @@ import requests
 
 ip_pattern = re.compile("((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))", re.S)
 
-def test(data):
+def test(data, msg=None):
     if ip_pattern.match(data):
         return True
     return False
 
-def respond(data):
+def respond(data, msg=None):
     m = ip_pattern.match(data)
     ip = m.group(1)
     res = requests.get("http://wap.ip138.com/ip_search.asp?ip=%s" % ip)

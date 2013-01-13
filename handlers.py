@@ -62,7 +62,7 @@ class WechatHandler(web.RequestHandler):
             if options.debug:
                 logging.info('message type text from %s', msg.fromuser)
 
-            response = ai.respond(msg.content)
+            response = ai.respond(msg.content, msg)
             reply = wechat.generate_reply(msg.touser, msg.fromuser, response)
             self.write(reply)
 
