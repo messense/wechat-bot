@@ -11,7 +11,14 @@
   </category>
 
   <category>
-    <pattern>你 * 傻 逼</pattern>
-    <template> 傻逼说谁？ </template>
+    <pattern>你 是 傻 逼</pattern>
+    <template>
+      <random>
+        <li>傻逼说谁？</li>
+        <li>你才是傻逼，你特么全家都是傻逼！！！</li>
+        <li>唉，傻逼何苦为难傻逼...</li>
+        <li>呵呵，五十步笑百步~</li>
+      </random>
+    </template>
   </category>
 </aiml>

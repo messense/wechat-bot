@@ -10,11 +10,12 @@
     <pattern>调 戏</pattern>
     <template>
       <random>
-        <li>卖.萌.禁.止!</li>
-        <li>调.戏.禁.止!</li>
+        <li>卖萌禁止!</li>
+        <li>调戏禁止!</li>
         <li>我是正经机器人，请勿调戏!</li>
         <li>唔 . . .</li>
         <li>求调教!</li>
+        <li>淫家才不要被调戏呢...</li>
       </random>
     </template>
   </category>
@@ -30,6 +31,7 @@
         <li>喵～</li>
         <li>喵唔～</li>
         <li>\(‵▽′)/ 好开心啊～(追着尾巴转圈圈  </li>
+        <li>淫家才不要被调教呢...</li>
       </random>
     </template>
   </category>
@@ -38,17 +40,6 @@
     <pattern>夸 奖 *</pattern>
     <template>
      嗨嗨，他们都说我<get name="star"/>~ ʅ(‾◡◝)ʃ  (骄
-    </template>
-  </category>
-
-  <category>
-    <pattern>微 软 好 不 好</pattern>
-    <template>
-      <random>
-        <li>
-            微软神马的，最讨厌了!
-        </li>
-      </random>
     </template>
   </category>
 
@@ -63,6 +54,13 @@
       <think><set name="star"><star index="1"/></set></think>
       <condition name="star">
         <li value="亲一下"><srai>亲一下行不行</srai></li>
+        <li value="谷歌">
+          <random>
+            <li>谷人希</li>
+            <li>谷歌是人类的希望</li>
+          </random>
+        </li>
+        <li value="微软">微软神马的，最讨厌了!</li>
         <li><get name="star"/>是神马？可以吃么？</li>
       </condition>
     </template>
@@ -80,6 +78,7 @@
           <random>
             <li>不要！</li>
             <li>雅蠛蝶！</li>
+            <li>淫家会害羞的嘛~</li>
           </random>
         </li>
         </condition>

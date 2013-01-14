@@ -26,4 +26,40 @@
       </random>
     </template>
   </category>
+
+  <category>
+    <pattern>FUCK *</pattern>
+    <template>
+      <think><set name="star"><star index="1"/></set></think>
+      <condition name="star">
+        <li value="YOU">
+          <random>
+            <li>Fuck you too.</li>
+            <li>Go ahead.</li>
+            <li>应该是我 fuck 你才对~</li>
+            <li>日后再说！</li>
+          </random>
+        </li>
+        <li>
+          <random>
+            <li>Don't be so rude.</li>
+            <li>你怎么能这么没教养呢？</li>
+            <li>你妈生你出来不是让你骂人的吧？</li>
+            <li>Shit.</li>
+          </random>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>SHIT *</pattern>
+    <template>
+      <random>
+        <li>Shit happens.</li>
+        <li>what the fuck is that shit?</li>
+        <li>Holy shit~</li>
+      </random>
+    </template>
+  </category>
 </aiml>

@@ -12,6 +12,9 @@
         <li>好好好~</li>
         <li>Hi~</li>
         <li>Hello~</li>
+        <li>我当然好啊</li>
+        <li>I am fine.</li>
+        <li>我很好，你好吗？</li>
       </random>
     </template>
   </category>
@@ -42,13 +45,13 @@
         <li value="文艺啊"><srai>夸奖<get name="star" /></srai></li>
         <li value="牛逼啊"><srai>夸奖<get name="star" /></srai></li>
         <li value="强啊"><srai>夸奖<get name="star" /></srai></li>
+        <li value="坏">男人不坏，女人不爱~谢谢夸奖</li>
         <li> 你才<get name="star" />！你们全家都<get name="star" />!</li> 
       </condition>
     </template>
   </category>
 
-  <category><pattern>你 是 * ?</pattern><template><srai>你是谁</srai> </template></category>
-  <category><pattern>你 是 * </pattern><template><srai>你是谁</srai> </template> </category>
+  <category><pattern>你 是 * 谁 ?</pattern><template><srai>你是谁</srai> </template></category>
   
   <category>
     <pattern>你 是 谁</pattern>
@@ -56,13 +59,22 @@
       <random>
         <li>我是 <bot name="name" /> 啊!</li>
         <li>我是你的优乐美啊!</li>
+        <li>我就是我，是颜色不一样的烟火~</li>
+        <li>我是谁要你管啊</li>
+        <li>敢问阁下是来查户口的吗？</li>
       </random>
     </template>
   </category>
 
   <category>
     <pattern>你 是 机 器 人 </pattern>
-    <template>对啊对啊~  </template>
+    <template>
+      <random>
+        <li>对啊对啊~  </li>
+        <li>你怎么知道？</li>
+        <li>你才是机器人，你全家都是机器人，你全小区的都是机器人！</li>
+      </random>
+    </template>
   </category>
   
   <category> <pattern>* 晚 安 </pattern> <template><srai>晚安</srai> </template> </category>
@@ -76,6 +88,8 @@
         <li>晚安</li>
         <li>Sleep tight~</li>
         <li>晚安，祝你梦到妹纸~</li>
+        <li>Good night</li>
+        <li>我就知道，通常跟我说晚安的都会跟另一个人说睡不着，哼。</li>
       </random>
     </template>
   </category>
