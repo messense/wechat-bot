@@ -36,9 +36,16 @@ def main():
     else:
         define('settings', '')
     parse_command_line()
-    config.parse_config_file(options.settings)
+    debug = options.debug
 
-    logging.info('Starting server at port %s' % options.port)
+    config.parse_config_file(options.settings)
+    if not debug:
+        options.debug = False
+
+    if options.debug:
+        logging.info('Starting server at port %s in debug mode' % options.port)
+    else:
+        logging.info('Starting server at port %s' % options.port)
 
     server = HTTPServer(Application(), xheaders=True)
     server.listen(int(options.port))
