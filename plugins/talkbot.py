@@ -33,3 +33,6 @@ def test(data, msg=None):
 
 def respond(data, msg=None):
     return talkbot.respond(data).encode('utf-8')
+
+if __name__ == '__main__':
+    print(respond("你好"))
