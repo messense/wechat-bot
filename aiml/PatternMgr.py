@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 # This class implements the AIML pattern-matching algorithm described
 # by Dr. Richard Wallace at the following site:
 # http://www.alicebot.org/documentation/matching.html

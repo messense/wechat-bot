@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """This module implements the WordSub class, modelled after a recipe
 in "Python Cookbook" (Recipe 3.14, "Replacing Multiple Patterns in a
 Single Pass" by Xavier Defrang).

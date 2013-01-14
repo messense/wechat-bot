@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# -*- coding:utf8 -*-
+# -*- coding:utf-8 -*-
 
 """   LangSupport.py
 提供对中文空格断字的支持。

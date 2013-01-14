@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 """This file contains the public interface to the aiml module."""
 import AimlParser
 import DefaultSubs

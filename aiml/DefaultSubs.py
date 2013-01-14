@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """This file contains the default (English) substitutions for the
 PyAIML kernel.  These substitutions may be overridden by using the
 Kernel.loadSubs(filename) method.  The filename specified should refer
