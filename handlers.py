@@ -1,11 +1,11 @@
 #coding=utf-8
 import logging
 import wechat
-import ai
 
 from hashlib import sha1
 from tornado import web
 from tornado.options import options
+from ai import bot
 
 
 class WechatHandler(web.RequestHandler):
@@ -62,7 +62,7 @@ class WechatHandler(web.RequestHandler):
             if options.debug:
                 logging.info('message type text from %s', msg.fromuser)
 
-            response = ai.respond(msg.content, msg)
+            response = bot.respond(msg.content, msg)
             reply = wechat.generate_reply(msg.touser, msg.fromuser, response)
             self.write(reply)
 

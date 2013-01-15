@@ -1,6 +1,10 @@
 wechat.conf
 talkbot.brn
 .DS_Store
+
+#PyCharm
+.idea
+
 *~
 *.py[cod]
 

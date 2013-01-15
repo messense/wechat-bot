@@ -2,6 +2,8 @@
 import re
 import requests
 
+__name__ = 'ip'
+
 ip_pattern = re.compile("((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))", re.S)
 
 def test(data, msg=None):

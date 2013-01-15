@@ -3,6 +3,8 @@ import requests
 from tornado.escape import json_decode
 from tornado.util import ObjectDict
 
+__name__ = 'v2ex'
+
 
 def test(data, msg=None):
     if 'v2ex' in data and '话题' in data and '最新' in data:

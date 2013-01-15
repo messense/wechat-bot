@@ -3,6 +3,8 @@ import requests
 from xml.etree import ElementTree
 from tornado.util import ObjectDict
 
+__name__ = 'oschina'
+
 
 def test(data, msg=None):
     if ('oschina' in data or '开源中国' in data) and '最新' in data and '新闻' in data:

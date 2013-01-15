@@ -3,6 +3,9 @@ import feedparser
 from tornado.util import ObjectDict
 from tornado.options import options
 
+__name__ = 'feed'
+
+
 def test(data, msg=None):
     if not options.feed_url:
         return False

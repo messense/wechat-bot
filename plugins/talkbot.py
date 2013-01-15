@@ -8,6 +8,9 @@ import aiml
 
 from tornado.options import options
 
+__name__ = 'talkbot'
+
+
 class TalkBot(aiml.Kernel):
     def __init__(self):
         super(TalkBot, self).__init__()

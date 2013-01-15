@@ -31,6 +31,8 @@ import cookielib
 
 from tornado.options import options
 
+__name__ = 'simsimi'
+
 SIMSIMI_KEY = options.simsimi_key or ''
 
 
