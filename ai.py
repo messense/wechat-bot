@@ -55,4 +55,5 @@ class AI(object):
 AI.load_plugins()
 
 if __name__ == '__main__':
+    bot = AI()
     print(bot.respond('hello'))
