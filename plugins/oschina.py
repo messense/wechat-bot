@@ -6,12 +6,12 @@ from tornado.util import ObjectDict
 __name__ = 'oschina'
 
 
-def test(data, msg=None):
+def test(data, msg=None, bot=None):
     if ('oschina' in data or '开源中国' in data) and '最新' in data and '新闻' in data:
         return True
     return False
 
-def respond(data, msg=None):
+def respond(data, msg=None, bot=None):
     headers = {
         'Host' : 'www.oschina.net',
         'Connection' : 'Keep-Alive',

@@ -36,7 +36,7 @@ __name__ = 'simsimi'
 SIMSIMI_KEY = options.simsimi_key or ''
 
 
-class SimSimi:
+class SimSimi(object):
 
     def __init__(self):
 
@@ -72,18 +72,18 @@ class SimSimi:
                 answer = r.json()['response']
                 return answer.encode('utf-8')
             except:
-                return '呵呵'
+                return u'呵呵'
         else:
-            return '叫我干嘛'
+            return u'叫我干嘛'
 
 simsimi = SimSimi()
 
 
-def test(data, msg=None):
+def test(data, msg=None, bot=None):
     return True
 
 
-def respond(data, msg=None):
+def respond(data, msg=None, bot=None):
     response = simsimi.chat(data)
     if "Unauthorized access" in response:
         # try again
@@ -92,5 +92,8 @@ def respond(data, msg=None):
     response = response.replace('小黄鸡', '我')
     if "Unauthorized access" in response:
         # still can't , give up
-        response = '矮油，这个问题我暂时回答不了喵~'
+        response = u'矮油，这个问题我暂时回答不了喵~'
+    if u'微信' in response and u'搜' in response:
+        # remove some ads
+        response = u'呵呵'
     return response

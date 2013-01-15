@@ -5,7 +5,7 @@ import wechat
 from hashlib import sha1
 from tornado import web
 from tornado.options import options
-from ai import bot
+from ai import AI
 
 
 class WechatHandler(web.RequestHandler):
@@ -38,10 +38,7 @@ class WechatHandler(web.RequestHandler):
         tmpstr = ''.join(tmparr)
         tmpstr = sha1(tmpstr).hexdigest()
 
-        if tmpstr == signature:
-            return True
-        else:
-            return False
+        return tmpstr == signature
 
     def post(self):
         if not self.check_signature():
@@ -57,6 +54,9 @@ class WechatHandler(web.RequestHandler):
 
         self.touser = msg.touser
         self.fromuser = msg.fromuser
+
+        # new bot
+        bot = AI(msg)
 
         if msg.type == wechat.MSG_TYPE_TEXT:
             if options.debug:

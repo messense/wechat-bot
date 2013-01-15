@@ -6,13 +6,13 @@ from tornado.util import ObjectDict
 __name__ = 'v2ex'
 
 
-def test(data, msg=None):
+def test(data, msg=None, bot=None):
     if 'v2ex' in data and '话题' in data and '最新' in data:
         return True
     return False
 
 
-def respond(data, msg=None):
+def respond(data, msg=None, bot=None):
     res = requests.get("http://www.v2ex.com/api/topics/latest.json")
     topics = json_decode(res.text)
     articles = []

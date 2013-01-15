@@ -55,4 +55,4 @@ if __name__ == '__main__':
     try:
         main()
     except (EOFError, KeyboardInterrupt):
-        print("\nExiting app")
+        print("\nExiting application")

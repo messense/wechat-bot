@@ -6,7 +6,7 @@ from tornado.options import options
 __name__ = 'feed'
 
 
-def test(data, msg=None):
+def test(data, msg=None, bot=None):
     if not options.feed_url:
         return False
     if 'rss feed' in data or '博客更新' in data:
@@ -14,7 +14,7 @@ def test(data, msg=None):
     return False
 
 
-def respond(data, msg=None):
+def respond(data, msg=None, bot=None):
     parser = feedparser.parse(options.feed_url)
     articles = []
     i = 0

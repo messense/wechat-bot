@@ -31,10 +31,10 @@ class TalkBot(aiml.Kernel):
 
 talkbot = TalkBot()
 
-def test(data, msg=None):
+def test(data, msg=None, bot=None):
     return True
 
-def respond(data, msg=None):
+def respond(data, msg=None, bot=None):
     return talkbot.respond(data).encode('utf-8')
 
 if __name__ == '__main__':
