@@ -15,6 +15,7 @@ from tornado.ioloop import IOLoop
 from tornado.httpserver import HTTPServer
 from tornado.options import options, define
 from tornado.options import parse_command_line
+from tornado.options import parse_config_file
 
 config.init()
 
@@ -38,7 +39,8 @@ def main():
     parse_command_line()
     debug = options.debug
 
-    config.parse_config_file(options.settings)
+    if options.settings:
+        parse_config_file(options.settings)
     if not debug:
         options.debug = False
 

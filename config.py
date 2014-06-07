@@ -26,14 +26,3 @@ def init():
     ), help='talkbot properties')
     define('feed_url', type=str, default='', help='blog rss feed url')
 
-
-def parse_config_file(path):
-    if not path or not os.path.exists(path):
-        return
-    config = {}
-    exec(compile(open(path).read(), path, 'exec'), config, config)
-    for name in config:
-        if name in options:
-            options[name].set(config[name])
-        else:
-            define(name, config[name])
