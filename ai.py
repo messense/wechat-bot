@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 import logging
 import plugins
@@ -11,7 +11,7 @@ class AI(object):
 
     def __init__(self, msg=None):
         if msg:
-            self.id = msg.fromuser
+            self.id = msg.source
 
     @classmethod
     def load_plugins(cls):
@@ -44,10 +44,11 @@ class AI(object):
                 if plugin.test(data, msg, self):
                     response = plugin.respond(data, msg, self)
             except:
-                logging.warning('Plugin %s failed to respond.' % plugin.__name__)
+                logging.warning('Plugin %s failed to respond', plugin.__name__)
                 continue
             if response:
-                break
+                logging.info('Plugin %s respond successfully', plugin.__name__)
+                return response
 
         return response or u'呵呵'
 

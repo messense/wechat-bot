@@ -4,6 +4,7 @@ talkbot.brn
 
 #PyCharm
 .idea
+.ropeproject
 
 *~
 *.py[cod]
@@ -25,6 +26,8 @@ develop-eggs
 .installed.cfg
 lib
 lib64
+include
+.Python
 
 # Installer logs
 pip-log.txt

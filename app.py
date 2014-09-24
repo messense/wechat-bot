@@ -1,12 +1,11 @@
 #!/usr/bin/env python
-#coding=utf-8
+# coding=utf-8
 import sys
 default_encoding = 'utf-8'
 if sys.getdefaultencoding() != default_encoding:
     reload(sys)
     sys.setdefaultencoding(default_encoding)
 
-import os
 import logging
 import config
 

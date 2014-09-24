@@ -1,79 +1,66 @@
-#coding=utf-8
+# coding=utf-8
 import logging
-import wechat
 
-from hashlib import sha1
 from tornado import web
 from tornado.options import options
+from wechatpy import parse_message, create_reply
+from wechatpy.utils import check_signature
+from wechatpy.exceptions import InvalidSignatureException
+
 from ai import AI
 
 
 class WechatHandler(web.RequestHandler):
-    def get_error_html(self, status_code, **kwargs):
-        self.set_header("Content-Type", "application/xml;charset=utf-8")
-        try:
-            if self.touser and self.fromuser:
-                reply = wechat.reply_with_text(self.touser, self.fromuser,
-                                               '矮油，系统出错了，没法回答你了。')
-                self.write(reply)
-                return
-        except:
-            pass
 
     def get(self):
         echostr = self.get_argument('echostr', '')
-        if self.check_signature():
-            self.write(echostr)
-            logging.info("Signature check success.")
-        else:
-            logging.warning("Signature check failed.")
-
-    def check_signature(self):
         signature = self.get_argument('signature', '')
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
-
-        tmparr = [options.token, timestamp, nonce]
-        tmparr.sort()
-        tmpstr = ''.join(tmparr)
-        tmpstr = sha1(tmpstr).hexdigest()
-
-        return tmpstr == signature
+        try:
+            check_signature(options.token, signature, timestamp, nonce)
+        except InvalidSignatureException:
+            logging.warning("Signature check failed.")
+        else:
+            logging.info("Signature check success.")
+            self.write(echostr)
 
     def post(self):
-        if not self.check_signature():
+        signature = self.get_argument('signature', '')
+        timestamp = self.get_argument('timestamp', '')
+        nonce = self.get_argument('nonce', '')
+        try:
+            check_signature(options.token, signature, timestamp, nonce)
+        except InvalidSignatureException:
             logging.warning("Signature check failed.")
             return
 
         self.set_header("Content-Type", "application/xml;charset=utf-8")
         body = self.request.body
-        msg = wechat.parse_user_msg(body)
+        msg = parse_message(body)
         if not msg:
             logging.info('Empty message, ignored')
             return
 
-        self.touser = msg.touser
-        self.fromuser = msg.fromuser
-
         # new bot
         bot = AI(msg)
 
-        if msg.type == wechat.MSG_TYPE_TEXT:
+        if msg.type == 'text':
             if options.debug:
-                logging.info('message type text from %s', msg.fromuser)
+                logging.info('message type text from %s', msg.source)
 
             response = bot.respond(msg.content, msg)
-            reply = wechat.generate_reply(msg.touser, msg.fromuser, response)
+            reply = create_reply(response, msg, render=True)
             self.write(reply)
 
             if options.debug:
-                logging.info('Replied to %s with "%s"', msg.fromuser, response)
-        elif msg.type == wechat.MSG_TYPE_LOCATION:
+                logging.info('Replied to %s with "%s"', msg.source, response)
+        elif msg.type == 'location':
             if options.debug:
-                logging.info('message type location from %s', msg.fromuser)
-        elif msg.type == wechat.MSG_TYPE_IMAGE:
+                logging.info('message type location from %s', msg.source)
+        elif msg.type == 'image':
             if options.debug:
-                logging.info('message type image from %s', msg.fromuser)
+                logging.info('message type image from %s', msg.source)
         else:
             logging.info('message type unknown')
 
